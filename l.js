@@ -30,9 +30,9 @@ const l = module.exports = ((code, variables = {}) => {
 
         /* find wtf to do */
         if (BUILTIN_FUNCTIONS[command]) {
-            result = BUILTIN_FUNCTIONS[command](args, variables, i)
+            result = BUILTIN_FUNCTIONS[command](l,args, variables, i)
         } else if (variables['dev_' + command]) {
-            result = variables['dev_' + command](args, variables, i)
+            result = variables['dev_' + command](l, args, variables, i)
         } else {
             console.log('Command not found: ' + command + ' at line ' + i + ': ' + line)
         }
