@@ -1,0 +1,1 @@
+require('./l')(require('fs').readFileSync(process.argv[2] || './main.l', 'utf-8'))
