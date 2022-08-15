@@ -53,6 +53,9 @@ const l = module.exports = ((code, variables = {}) => {
                     case 'chain':
                         chain.push(g.value)
                         break
+                    case 'merge':
+                        variables = {...variables, ...g.value}
+                        break
                     default:
                         console.log('Unknown function result type: ' + g.type + ' at line ' + i + ': ' + line)
                         break
@@ -60,4 +63,6 @@ const l = module.exports = ((code, variables = {}) => {
             })
         }
     }
+
+    return variables
 })

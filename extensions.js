@@ -23,7 +23,30 @@ const MODULES = module.exports = {
                     type: 'variable',
                     name: 'dev_' + name,
                     value: () => {
-                        l(newText, args[1], args[2])
+                        return [
+                            {
+                                type: 'merge',
+                                value: l(newText, args[1])
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        'find': (...args) => {
+            let name = args[0]
+            let l_code = fs.readFileSync(name, 'utf8')
+            return [
+                {
+                    type: 'variable',
+                    name: 'dev_' + name.split('/').pop(),
+                    value: () => {
+                        return [
+                            {
+                                type: 'merge',
+                                value: l(l_code, args[1])
+                            }
+                        ]
                     }
                 }
             ]
