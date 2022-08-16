@@ -13,6 +13,7 @@ const MODULES = module.exports = {
     },
     IO: {
         'log': (l, ...args) => {
+            console.log(args[0])
             return [
                 {
                     type: 'chain',
