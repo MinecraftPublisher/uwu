@@ -1,15 +1,15 @@
-# Features
-- [x] Logging to console
-- [x] Clearing console
-- [ ] Input from console (chaining)
-- [x] Filesystem manipulation
-- [x] Chaining
-  - [x] Basic chaining
-  - [x] Multi-Value chaining
-  - [x] Internal chaining support
-  - [x] Chain command
+# *looks at you* Featuwes
+- ^-^ [x] Wogging t-to consowe
+- [x] Cweawing consowe
+- [ ] Input fwom consowe (-(chainying)
+- [x] Fiwesystem manyipuwation
+- [x] Chainying
+  - [x] Basic chainying
+  - [x] Muwti-Vawue chainying
+  - [x] Intewnyaw *twerks* chainying suppowt
+  - [x] Chain *sweats* command
 - [x] Functions
-  - [ ] Function arguments
-  - [ ] Function return values (chaining)
-- [x] Filesystem import
-- [ ] Code evaluation
+  - [ ] Function ;;w;; awguments
+  - [ ] Function ;;w;; w-w-wetuwn vawues (-(chainying)
+- [x] Fiwesystem impowt
+- [ ] Code evawuation ^-^

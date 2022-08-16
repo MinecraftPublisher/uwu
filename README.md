@@ -3,8 +3,8 @@ nya~
 ## how to use
 `npm i -g .` me daddy uwu
 ## examples??
-any file ending with `.uwu` for now
-## I DONT KNOW HOW IT WORKS!!!!!
+any OwO fiwe ending with `.uwu` UwU fow nyow *whispers to self*
+## I DONT KNyOW H-HOW IT WOWKS?!?1
 [this](https://github.com/MinecraftPublisher/uwu/blob/master/GUIDE.md)
-## WHAT IT HAS?!!??!?
+## WHAT IT HAS!?
 [this](https://github.com/MinecraftPublisher/uwu/blob/master/FEATURES.md)
