@@ -6,12 +6,12 @@
   "bin": "./js/cli.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MinecraftPublisher/l.git"
+    "url": "git+https://github.com/MinecraftPublisher/uwu.git"
   },
   "author": "Agent Z",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MinecraftPublisher/l/issues"
+    "url": "https://github.com/MinecraftPublisher/uwu/issues"
   },
-  "homepage": "https://github.com/MinecraftPublisher/l#readme"
+  "homepage": "https://github.com/MinecraftPublisher/uwu#readme"
 }
