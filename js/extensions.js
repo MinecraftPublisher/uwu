@@ -12,7 +12,7 @@ const MODULES = module.exports = {
         }
     },
     IO: {
-        'log': (l, ...args) => {
+        'log': (uwu, ...args) => {
             console.log(args[0])
             return [
                 {
@@ -26,43 +26,43 @@ const MODULES = module.exports = {
         }
     },
     FUNCTIONS: {
-        'dev': (l, ...args) => {
+        'dev': (uwu, ...args) => {
             let name = args[0].split(' ')[0]
             let newText = args[0].substring(name.length + 1).replaceAll(/ {0,1}@ {0,1}/g, '@').split('@').join(' ^ ')
             return [
                 {
                     type: 'variable',
                     name: 'dev_' + name,
-                    value: (l, args, variables) => {
+                    value: (uwu, args, variables) => {
                         return [
                             {
                                 type: 'merge',
-                                value: l(newText, variables)
+                                value: uwu(newText, variables)
                             }
                         ]
                     }
                 }
             ]
         },
-        'find': (l, ...args) => {
+        'find': (uwu, ...args) => {
             let name = args[0]
-            let l_code = fs.readFileSync(path.join(process.cwd(), name), 'utf8')
+            let uwu_code = fs.readFileSync(path.join(process.cwd(), name), 'utf8')
             return [
                 {
                     type: 'variable',
                     name: 'dev_' + name.split('/').pop().replaceAll('.l', ''),
-                    value: (l, args, variables) => {
+                    value: (uwu, args, variables) => {
                         return [
                             {
                                 type: 'merge',
-                                value: l(l_code, variables)
+                                value: uwu(uwu_code, variables)
                             }
                         ]
                     }
                 }
             ]
         },
-        'chain': (l, ...args) => {
+        'chain': (uwu, ...args) => {
             return [
                 {
                     type: 'chain',
@@ -70,17 +70,17 @@ const MODULES = module.exports = {
                 }
             ]
         },
-        'eval': (l, ...args) => {
+        'eval': (uwu, ...args) => {
             return [
                 {
                     type: 'chain',
-                    value: l(args[0].replaceAll(/ {0,1}@ {0,1}/g, '@').split('@').join(' ^ '), args[1])
+                    value: uwu(args[0].replaceAll(/ {0,1}@ {0,1}/g, '@').split('@').join(' ^ '), args[1])
                 }
             ]
         }
     },
     OPERATORS: {
-        'tryint': (l, ...args) => {
+        'tryint': (uwu, ...args) => {
             let value = parseInt(args[0])
             if (isNaN(value)) {
                 return [
@@ -98,7 +98,7 @@ const MODULES = module.exports = {
                 ]
             }
         },
-        'add': (l, ...args) => {
+        'add': (uwu, ...args) => {
             let _args = args[0].replaceAll(/ {0,1}\+ {0,1}/g, '+').split('+').map(e => MODULES.OPERATORS.tryint(l, e)[0].value)
             return [
                 {
@@ -107,7 +107,7 @@ const MODULES = module.exports = {
                 }
             ]
         },
-        'subtract': (l, ...args) => {
+        'subtract': (uwu, ...args) => {
             let _args = args[0].replaceAll(/ {0,1}\- {0,1}/g, '-').split('-').map(e => MODULES.OPERATORS.tryint(l, e)[0].value)
             return [
                 {
@@ -116,7 +116,7 @@ const MODULES = module.exports = {
                 }
             ]
         },
-        'multiply': (l, ...args) => {
+        'multiply': (uwu, ...args) => {
             let _args = args[0].replaceAll(/ {0,1}\* {0,1}/g, '*').split('*').map(e => MODULES.OPERATORS.tryint(l, e)[0].value)
             return [
                 {
@@ -125,7 +125,7 @@ const MODULES = module.exports = {
                 }
             ]
         },
-        'divide': (l, ...args) => {
+        'divide': (uwu, ...args) => {
             let _args = args[0].replaceAll(/ {0,1}\/ {0,1}/g, '/').split('/').map(e => MODULES.OPERATORS.tryint(l, e)[0].value)
             return [
                 {
@@ -136,7 +136,7 @@ const MODULES = module.exports = {
         }
     },
     FS: {
-        'book': (l, ...args) => {
+        'book': (uwu, ...args) => {
             let operation = args[0].split(' ')[0]
             let data = args[0].substring(operation.length + 1).replaceAll(/ {0,1}\@ {0,1}/g, '@').split('@')
             switch (operation) {
@@ -163,7 +163,7 @@ const MODULES = module.exports = {
         }
     },
     VARIABLES: {
-        'var': (l, ...args) => {
+        'var': (uwu, ...args) => {
             let name = args[0].replaceAll(/ {0,1}@ {0,1}/g, '@').split('@')[0]
             let newText = args[0].substring(name.length + 1).replaceAll(/ {0,1}\@ {0,1}/g, '@').split('@')[1]
             return [
@@ -174,7 +174,7 @@ const MODULES = module.exports = {
                 }
             ]
         },
-        'get': (l, ...args) => {
+        'get': (uwu, ...args) => {
             return [
                 {
                     type: 'chain',
@@ -182,7 +182,7 @@ const MODULES = module.exports = {
                 }
             ]
         },
-        'delete': (l, ...args) => {
+        'delete': (uwu, ...args) => {
             delete args[1][args[0]]
             return [
                 {
@@ -193,7 +193,7 @@ const MODULES = module.exports = {
         }
     },
     JOKE: {
-        'uwu': (l, ...args) => {
+        'uwu': (uwu, ...args) => {
             console.log('uwu')
             return [
                 {

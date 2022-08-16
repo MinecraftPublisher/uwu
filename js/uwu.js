@@ -19,7 +19,7 @@ console.log = (...args) => {
 
 const BUILTIN_FUNCTIONS = EXTENSIONS.LIST()
 
-const l = module.exports = ((code, variables = {}, version = false) => {
+const uwu = module.exports = ((code, variables = {}, version = false) => {
     if(version) {
         console.log('using ' + __filename.split('/').pop().split('.js')[0] + ' as interpreter')
         console.log('---------')
@@ -49,9 +49,9 @@ const l = module.exports = ((code, variables = {}, version = false) => {
 
         /* find wtf to do */
         if (BUILTIN_FUNCTIONS[command]) {
-            result = BUILTIN_FUNCTIONS[command](l, args, variables, i)
+            result = BUILTIN_FUNCTIONS[command](uwu, args, variables, i)
         } else if (variables['dev_' + command]) {
-            result = variables['dev_' + command](l, args, variables, i)
+            result = variables['dev_' + command](uwu, args, variables, i)
         } else {
             console.log('Command not found: ' + command + ' at line ' + i + ': ' + line)
         }

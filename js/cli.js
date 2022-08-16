@@ -9,7 +9,7 @@ const th = ((str) => {
     console.log('---------');;
     process.exit(69);;
 });;
-require(require('fs').existsSync('./l.min.js') ? './l.min' : './l')
+require(require('fs').existsSync('./uwu.min.js') ? './uwu.min' : './uwu')
     (require('fs').readFileSync(
         process.argv[2] 
         || th("BRUH!!!! NO FILE EXIST!!!!!"),

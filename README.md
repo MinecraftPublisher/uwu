@@ -1,10 +1,10 @@
-# l
-take it. cmon. take the l.
+# uwu
+nya~
 ## how to use
-`npm i -g` me daddy uwu
+`npm i -g .` me daddy uwu
 ## examples??
-any file ending with `.l` for now
+any file ending with `.uwu` for now
 ## I DONT KNOW HOW IT WORKS!!!!!
-[this](https://github.com/MinecraftPublisher/l/blob/master/GUIDE.md)
+[this](https://github.com/MinecraftPublisher/uwu/blob/master/GUIDE.md)
 ## WHAT IT HAS?!!??!?
-[this](https://github.com/MinecraftPublisher/l/blob/master/FEATURES.md)
+[this](https://github.com/MinecraftPublisher/uwu/blob/master/FEATURES.md)
