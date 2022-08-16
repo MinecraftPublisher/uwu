@@ -1,5 +1,5 @@
 # *looks at you* Featuwes
-- ^-^ [x] Wogging t-to consowe
+- [x] Wogging t-to consowe
 - [x] Cweawing consowe
 - [ ] Input fwom consowe (-(chainying)
 - [x] Fiwesystem manyipuwation
