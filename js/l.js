@@ -13,7 +13,7 @@ console.log = (...args) => {
             return arg.toString()
         }
     })
-    console._log(MAPPED.join(', ').replaceAll('\n', ''))
+    console._log(MAPPED.join(', ').replaceAll('\n', '\x1B[30m\x1B[47m\\n\x1B[49m\x1B[39m'))
     if(MAPPED.join(', ').replaceAll('\n', '') !== MAPPED.join(', ')) console.warn('|_ WARNING: Newline characters are present.')
 }
 
@@ -25,7 +25,7 @@ const l = module.exports = ((code, variables = {}, version = false) => {
         console.log('---------')
     }
     /* line seperator and QoL */
-    let lines = code.replaceAll('\n    ', '')
+    let lines = code.replaceAll('\n    ', ' ')
     /* fix indentation issues with line breaks */
     .replaceAll(/\^ *\n/g, '^').replaceAll(/ {0,1}\^ {0,1}/g, '^')
     /* break the lines */
@@ -37,6 +37,7 @@ const l = module.exports = ((code, variables = {}, version = false) => {
     for (let i = 0; i < lines.length; i++) {
         /* line stuff */
         let line = lines[i]
+        while(line.startsWith(' ') || line.startsWith('\n')) line = line.substring(1)
         if(chain) line = line.replaceAll('<|>', () => {
             return chain.length === 1 ? chain[0] : chain.pop().value
         }).replaceAll(/<var:.+>/g, ((match) => {
@@ -48,7 +49,7 @@ const l = module.exports = ((code, variables = {}, version = false) => {
 
         /* find wtf to do */
         if (BUILTIN_FUNCTIONS[command]) {
-            result = BUILTIN_FUNCTIONS[command](l,args, variables, i)
+            result = BUILTIN_FUNCTIONS[command](l, args, variables, i)
         } else if (variables['dev_' + command]) {
             result = variables['dev_' + command](l, args, variables, i)
         } else {

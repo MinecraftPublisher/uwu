@@ -1,6 +1,6 @@
-add 2 + 2
+dev AAAAAA
+    log AAAAAA @
+    AAAAAA
     ^
-log Well, two plus two is <|>
-    ^
-log Making a file...
-    ^
+
+log mee

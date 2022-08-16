@@ -13,7 +13,6 @@ const MODULES = module.exports = {
     },
     IO: {
         'log': (l, ...args) => {
-            console.log(args[0])
             return [
                 {
                     type: 'chain',
@@ -33,11 +32,11 @@ const MODULES = module.exports = {
                 {
                     type: 'variable',
                     name: 'dev_' + name,
-                    value: () => {
+                    value: (l, args, variables) => {
                         return [
                             {
                                 type: 'merge',
-                                value: l(newText, args[1])
+                                value: l(newText, variables)
                             }
                         ]
                     }
@@ -51,11 +50,11 @@ const MODULES = module.exports = {
                 {
                     type: 'variable',
                     name: 'dev_' + name.split('/').pop().replaceAll('.l', ''),
-                    value: () => {
+                    value: (l, args, variables) => {
                         return [
                             {
                                 type: 'merge',
-                                value: l(l_code, args[1])
+                                value: l(l_code, variables)
                             }
                         ]
                     }
@@ -99,7 +98,7 @@ const MODULES = module.exports = {
             }
         },
         'add': (l, ...args) => {
-            let _args = args[0].replaceAll(/ {0,1}\+ {0,1}/g, '+').split('+').map(e => MODULES.OPERATORS.tryint(e)[0].value)
+            let _args = args[0].replaceAll(/ {0,1}\+ {0,1}/g, '+').split('+').map(e => MODULES.OPERATORS.tryint(l, e)[0].value)
             return [
                 {
                     type: 'chain',
@@ -108,7 +107,7 @@ const MODULES = module.exports = {
             ]
         },
         'subtract': (l, ...args) => {
-            let _args = args[0].replaceAll(/ {0,1}\- {0,1}/g, '-').split('-').map(e => MODULES.OPERATORS.tryint(e)[0].value)
+            let _args = args[0].replaceAll(/ {0,1}\- {0,1}/g, '-').split('-').map(e => MODULES.OPERATORS.tryint(l, e)[0].value)
             return [
                 {
                     type: 'chain',
@@ -117,7 +116,7 @@ const MODULES = module.exports = {
             ]
         },
         'multiply': (l, ...args) => {
-            let _args = args[0].replaceAll(/ {0,1}\* {0,1}/g, '*').split('*').map(e => MODULES.OPERATORS.tryint(e)[0].value)
+            let _args = args[0].replaceAll(/ {0,1}\* {0,1}/g, '*').split('*').map(e => MODULES.OPERATORS.tryint(l, e)[0].value)
             return [
                 {
                     type: 'chain',
@@ -126,7 +125,7 @@ const MODULES = module.exports = {
             ]
         },
         'divide': (l, ...args) => {
-            let _args = args[0].replaceAll(/ {0,1}\/ {0,1}/g, '/').split('/').map(e => MODULES.OPERATORS.tryint(e)[0].value)
+            let _args = args[0].replaceAll(/ {0,1}\/ {0,1}/g, '/').split('/').map(e => MODULES.OPERATORS.tryint(l, e)[0].value)
             return [
                 {
                     type: 'chain',
