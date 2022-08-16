@@ -1,7 +1,7 @@
 # l
 take it. cmon. take the l.
 ## how to use
-run `alias l="node cli.js"` while in the project root
+`npm i -g` me daddy uwu
 ## examples??
 any file ending with `.l` for now
 ## I DONT KNOW HOW IT WORKS!!!!!
