@@ -7,6 +7,8 @@ const MODULES = module.exports = {
             ...MODULES.FUNCTIONS,
             ...MODULES.OPERATORS,
             ...MODULES.FS,
+            ...MODULES.VARIABLES,
+            ...MODULES.JOKE,
         }
     },
     IO: {
@@ -158,6 +160,47 @@ const MODULES = module.exports = {
                     console.log('Invalid book operation ' + operation + ' at line ' + args[1] + ': ' + args[0])
                     break
             }
+        }
+    },
+    VARIABLES: {
+        'var': (l, ...args) => {
+            let name = args[0].replaceAll(/ {0,1}@ {0,1}/g, '@').split('@')[0]
+            let newText = args[0].substring(name.length + 1).replaceAll(/ {0,1}\@ {0,1}/g, '@').split('@')[1]
+            return [
+                {
+                    type: 'variable',
+                    name: name,
+                    value: newText
+                }
+            ]
+        },
+        'get': (l, ...args) => {
+            return [
+                {
+                    type: 'chain',
+                    value: args[1][args[0]]
+                }
+            ]
+        },
+        'delete': (l, ...args) => {
+            delete args[1][args[0]]
+            return [
+                {
+                    type: 'chain',
+                    value: args[1]
+                }
+            ]
+        }
+    },
+    JOKE: {
+        'uwu': (l, ...args) => {
+            console.log('uwu')
+            return [
+                {
+                    type: 'chain',
+                    value: 'uwu'
+                }
+            ]
         }
     }
 }

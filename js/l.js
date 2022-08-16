@@ -2,8 +2,19 @@ const EXTENSIONS = require('./extensions')
 
 console._log = console.log
 console.log = (...args) => {
-    console._log(args.map(arg => arg.toString()).join(', ').replaceAll('\n', ''))
-    if(args.map(arg => arg.toString()).join(', ').replaceAll('\n', '') !== args.map(arg => arg.toString()).join(', ')) console.warn('|_ WARNING: Newline characters are present.')
+    const MAPPED = args.map(arg => {
+        try {
+            if(typeof arg === typeof {}) {
+                return JSON.stringify(arg)
+            } else {
+                return arg.toString()
+            }
+        } catch (e) {
+            return arg.toString()
+        }
+    })
+    console._log(MAPPED.join(', ').replaceAll('\n', ''))
+    if(MAPPED.join(', ').replaceAll('\n', '') !== MAPPED.join(', ')) console.warn('|_ WARNING: Newline characters are present.')
 }
 
 const BUILTIN_FUNCTIONS = EXTENSIONS.LIST()
@@ -28,7 +39,9 @@ const l = module.exports = ((code, variables = {}, version = false) => {
         let line = lines[i]
         if(chain) line = line.replaceAll('<|>', () => {
             return chain.length === 1 ? chain[0] : chain.pop().value
-        })
+        }).replaceAll(/<var:.+>/g, ((match) => {
+            return variables[match.substring(5, match.length - 1)]
+        }))
         let command = line.split(' ')[0]
         let args = line.substring(command.length + 1)
         let result = undefined
