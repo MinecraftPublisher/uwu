@@ -1,13 +1,18 @@
 const EXTENSIONS = require('./extensions')
 
-const BUILTIN_FUNCTIONS = {
-    ...EXTENSIONS.IO,
-    ...EXTENSIONS.FUNCTIONS,
-    ...EXTENSIONS.OPERATORS,
-    ...EXTENSIONS.FS,
+console._log = console.log
+console.log = (...args) => {
+    console._log(args.map(arg => arg.toString()).join(', ').replaceAll('\n', ''))
+    if(args.map(arg => arg.toString()).join(', ').replaceAll('\n', '') !== args.map(arg => arg.toString()).join(', ')) console.warn('|_ WARNING: Newline characters are present.')
 }
 
-const l = module.exports = ((code, variables = {}) => {
+const BUILTIN_FUNCTIONS = EXTENSIONS.LIST()
+
+const l = module.exports = ((code, variables = {}, version = false) => {
+    if(version) {
+        console.log('using ' + __filename.split('/').pop().split('.js')[0] + ' as interpreter')
+        console.log('---------')
+    }
     /* line seperator and QoL */
     let lines = code.replaceAll('\n    ', '')
     /* fix indentation issues with line breaks */

@@ -1,6 +1,14 @@
 const fs = require('fs')
 const path = require('path')
 const MODULES = module.exports = {
+    LIST: () => {
+        return {
+            ...MODULES.IO,
+            ...MODULES.FUNCTIONS,
+            ...MODULES.OPERATORS,
+            ...MODULES.FS,
+        }
+    },
     IO: {
         'log': (l, ...args) => {
             console.log(args[0])
@@ -49,6 +57,22 @@ const MODULES = module.exports = {
                             }
                         ]
                     }
+                }
+            ]
+        },
+        'chain': (l, ...args) => {
+            return [
+                {
+                    type: 'chain',
+                    value: args[0]
+                }
+            ]
+        },
+        'eval': (l, ...args) => {
+            return [
+                {
+                    type: 'chain',
+                    value: l(args[0].replaceAll(/ {0,1}@ {0,1}/g, '@').split('@').join(' ^ '), args[1])
                 }
             ]
         }

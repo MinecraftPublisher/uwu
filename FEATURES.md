@@ -1,0 +1,15 @@
+# Features
+- [x] Logging to console
+- [x] Clearing console
+- [ ] Input from console (chaining)
+- [x] Filesystem manipulation
+- [x] Chaining
+  - [x] Basic chaining
+  - [x] Multi-Value chaining
+  - [x] Internal chaining support
+  - [x] Chain command
+- [x] Functions
+  - [ ] Function arguments
+  - [ ] Function return values (chaining)
+- [x] Filesystem import
+- [ ] Code evaluation
