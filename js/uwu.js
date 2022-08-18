@@ -14,14 +14,14 @@ console.log = (...args) => {
         }
     })
     console._log(MAPPED.join(', ').replaceAll('\n', '\x1B[30m\x1B[47m\\n\x1B[49m\x1B[39m'))
-    if(MAPPED.join(', ').replaceAll('\n', '') !== MAPPED.join(', ')) console.warn('|_ WARNING: Newline characters are present.')
+    if(MAPPED.join(', ').replaceAll('\n', '') !== MAPPED.join(', ')) console.warn('|_ WARNING: Nyewwinye chawactews awe pwesent. *notices buldge*')
 }
 
 const BUILTIN_FUNCTIONS = EXTENSIONS.LIST()
 
 const uwu = module.exports = ((code, variables = {}, version = false) => {
     if(version) {
-        console.log('using ' + __filename.split('/').pop().split('.js')[0] + ' as interpreter')
+        console.log('u-using ' + __filename.split('/').pop().split('.js')[0] + ' as intewpwetew (・`ω´・)')
         console.log('---------')
     }
     /* line seperator and QoL */
@@ -53,7 +53,7 @@ const uwu = module.exports = ((code, variables = {}, version = false) => {
         } else if (variables['dev_' + command]) {
             result = variables['dev_' + command](uwu, args, variables, i)
         } else {
-            console.log('Command not found: ' + command + ' at line ' + i + ': ' + line)
+            console.log('Command nyot found: ' + command + ' at winye ' + i + ': ' + line)
         }
 
         /* reset chaining and check return types */
@@ -76,7 +76,7 @@ const uwu = module.exports = ((code, variables = {}, version = false) => {
                         variables = {...variables, ...g.value}
                         break
                     default:
-                        console.log('Unknown function result type: ' + g.type + ' at line ' + i + ': ' + line)
+                        console.log('Unknyown function w-wesuwt type: ' + g.type + ' at winye ' + i + ': ' + line)
                         break
                 }
             })

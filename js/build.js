@@ -1,5 +1,5 @@
 const fs = require('fs')
-console.log('using build.js bundler')
+console.log('Using build.js bundler ^w^')
 const requireTree = ((file = './uwu.js') => {
     const TEMPLATE = `(() => { __TEXT__ ;; return module.exports; })();;`
     return fs.readFileSync(file, 'utf8').replaceAll(/require\("\.\/[^"]+"\)/g, ((match) => {

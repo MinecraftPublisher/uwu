@@ -157,7 +157,7 @@ const MODULES = module.exports = {
                     fs.unlinkSync(path.join(process.cwd(), data[0]))
                     break
                 default:
-                    console.log('Invalid book operation ' + operation + ' at line ' + args[1] + ': ' + args[0])
+                    console.log('Invawid b-book opewation ' + operation + ' at winye ' + args[1] + ': ' + args[0])
                     break
             }
         }
