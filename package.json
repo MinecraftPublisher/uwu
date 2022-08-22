@@ -13,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/MinecraftPublisher/uwu/issues"
   },
-  "homepage": "https://github.com/MinecraftPublisher/uwu#readme"
+  "homepage": "https://github.com/MinecraftPublisher/uwu#readme",
+  "dependencies": {
+    "uwufier": "^1.1.0"
+  }
 }

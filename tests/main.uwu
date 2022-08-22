@@ -12,3 +12,6 @@ test
     ^
 eval log this text is evaluated!
     ^
+book read grand.uwu
+    ^
+log <|>

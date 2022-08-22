@@ -13,7 +13,7 @@ const MODULES = module.exports = {
     },
     IO: {
         'log': (uwu, ...args) => {
-            console.log(args[0])
+            console.log(args[3](args[0]))
             return [
                 {
                     type: 'chain',
@@ -37,7 +37,7 @@ const MODULES = module.exports = {
                         return [
                             {
                                 type: 'merge',
-                                value: uwu(newText, variables)
+                                value: uwu(newText, variables, args[3])
                             }
                         ]
                     }
@@ -55,7 +55,7 @@ const MODULES = module.exports = {
                         return [
                             {
                                 type: 'merge',
-                                value: uwu(uwu_code, variables)
+                                value: uwu(uwu_code, variables, args[3])
                             }
                         ]
                     }
@@ -74,7 +74,7 @@ const MODULES = module.exports = {
             return [
                 {
                     type: 'chain',
-                    value: uwu(args[0].replaceAll(/ {0,1}@ {0,1}/g, '@').split('@').join(' ^ '), args[1])
+                    value: uwu(args[0].replaceAll(/ {0,1}@ {0,1}/g, '@').split('@').join(' ^ '), args[1], args[3])
                 }
             ]
         }
